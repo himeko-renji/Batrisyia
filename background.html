@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Background Page</title>
+<style>
+body {
+    background: url(batik.jpeg);
+    background-size: cover;      /* fills entire page */
+    background-repeat: no-repeat;/* stops repeating */
+    background-position: center; /* centers the image */
+    background-attachment: fixed;
+    color: #ffd800;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    height: 50px;
+  display: flex;
+  background-color: #000000;
+  color:#ffffff;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 4px solid #FFD700;
+  top: 0;
+  z-index: 10;
+}
+
+.container {
+    display: flex;
+    padding: 25px;
+    background-color: #000000;
+    margin-top: 20px;
+}
+
+
+.home-icon{
+  width: 100px;
+  height: 95px;
+  background-image: url(home.png);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+
+/* marquee */
+marquee{
+    
+    font-size: larger;
+    font-family: times new roman;
+    font-weight: 700;
+    color:#FFD700;
+    background-color: #000000;
+    border-radius:10px;
+    width: 1100px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 65px;
+}
+
+
+.fav-table{
+    display: flex;
+    width: 100%;
+  table-layout: fixed; /* forces equal column width */
+  border-collapse: collapse;
+}
+
+
+.fav-table table{
+    margin: 10px 12px;
+    border: 2px solid  #000000;
+    border-collapse: collapse;
+    background-color:#ffd800;
+    color: black;
+    font-family: arial;
+    text-align: center;
+    width:50%; 
+    height: 282px;
+    padding:10px;
+}
+
+.fav-table td{
+    width: 33%;          /* equal size for 3 columns */
+  height: 50px;       /* fix the height */
+  text-align: center;
+  vertical-align: middle;
+  background: #ffd800;
+  border: 7px solid #000000;
+
+}
+
+.fav-table h2 {
+    text-align: center;
+    writing-mode: vertical-lr;
+    font-size: 20px;
+    color: #ffd800;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 6px #ffffff;
+}
+
+
+.fav-table td img {
+    width: 80%;       /* make image fill cell width */
+    height: 100%;      /* make image fill cell height */
+    object-fit: cover; /* crop image to fit nicely */
+}
+
+
+
+/* LEFT SIDE */
+.left-section {
+    width: 40%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Vertical Japanese H1 */
+.vertical-text {
+    writing-mode: vertical-rl;
+    font-size: 32px;
+    color: #ffd800;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 6px #ffffff;
+}
+
+/* Character Image */
+.character-img {
+    width: 85%;
+    object-fit: cover;
+    border-radius: 0px;
+    border-bottom: 2px solid #ffd800;
+}
+
+/* RIGHT SIDE */
+.right-section {
+    width: 60%;
+    padding-left: 40px;
+    border-left: 2px solid #ffd800;
+}
+
+.name-title {
+    font-size: 38px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.cv {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.description {
+    text-align: justify;
+    font-size: 17px;
+    color: white;
+    font-family: arial;
+    margin-top: 20px;
+    line-height: 1.6;
+    width: 85%;
+    border-bottom: 2px solid #ffd800;
+}
+
+
+
+.voice-buttons button {
+    margin: 10px 10px 0 0;
+    background: transparent;
+    border: 2px solid #ffd800;
+    color: #ffd800;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.voice-buttons button:hover {
+    background: #ffd800;
+    color: #000;
+}
+
+
+
+/*bio box*/
+.bio-list {
+  width: 100%;
+  padding: 20px 25px;
+  font-family: "Arial", sans-serif;
+  align-items: center;
+  margin-left: 95px;
+  
+}
+
+.bio-list-note {
+    width: 1081px;
+    margin-bottom: 10px;
+
+}
+
+
+.bio-list-note a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+/* LEFT DATE BOX */
+.bio-list-note .data {
+  background: #fffefe;
+  color: rgb(2, 0, 0);
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  min-width: 120px;
+}
+
+.bio-list-note .data span {
+  font-size: 20px;
+  display: block;
+}
+
+.bio-list-note .data em {
+  font-size: 26px;
+  font-style: normal;
+  display: block;
+}
+
+/* RIGHT RED BOX */
+.bio-list-note dl {
+  background: #ffd800;        
+  padding: 25px 30px;
+  margin: 0;
+  clip-path: polygon(1% 0, 99% 0, 100% 10%, 100% 90%, 99% 100%, 1% 100%, 0 90%, 0 0%);  
+  width: 100%;
+  position: relative;
+}
+
+
+
+
+
+
+
+/* TITLE */
+.bio-list-note dt {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* CATEGORY (GOODS / MUSIC / INFO) */
+.bio-list-note dd {
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+/*footer*/
+.link-footer {
+    background: #000000;
+    color: #ffcc00;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+}
+
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.footer-logo {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #ffcc00;
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    opacity: 0.7;
+}
+
+.footer-icons a i {
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+
+
+/* Scroll to Top */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #FFD700;
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FFD700;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+#scrollTopBtn:hover {
+    background-color: #fff;
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="header">
+    <marquee width="500" scrolldelay="100">
+ ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者 ウェブサイト開 発 者
+</marquee>
+</div>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left-section">
+
+        <!-- Your Character Image -->
+        <img src="imdinner.png" class="character-img">
+
+        <!-- Vertical H1 (Japanese text) -->
+        <h1 class="vertical-text">
+            ウェブサイト開 発 者
+        </h1>
+
+        
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right-section">
+
+        <h2 class="name-title">Nur Batrisyia bt Ahmad Tarmizi</h2>
+        <h3 class="cv">An Information Management Student</h3>
+
+        <p class="description">
+            Given name, Nur Batrisyia binti Ahmad Tarmizi. Student Universiti Teknologi MARA, Johor. (UiTM).. Majoring in Information Management. 
+            Have a strong interest in Design developer.Starting a path as a professional information to game developer. Strive to  be good role
+            to my siblings and younger cousins. Continuosly improve myself to achieve both personal and professional growth.
+        </p>
+    <div class="fav-table">
+        <h2>FAVOURITE STUFF</h2>
+        <table>
+            <tr>
+                <td><img src="fav1.png"></td>
+                <td></td>
+                <td><img src="fav2.png"></td>
+            </tr>
+            <tr>
+                <td><img src="fav3.png"></td>
+                <td></td>
+                <td><img src="fav4.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="fav5.png"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td><img src="fav7.png"></td>
+                <td></td>
+                <td><img src="fav8.png"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="fav9.png"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="fav6.png"></td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+        
+
+       
+
+    </div>
+</div>
+<div class="container">
+     <div class="voice-buttons">
+            <button>STUDENT</button>
+            <button>INFORMATION MANAGEMENT</button>
+            <button>UITM</button>
+            <button>SELANGOREAN</button>
+            <button>FEMALE</button>
+            <button>SPORTY</button>
+            <button>ARTIST</button>
+            <button id="musicBtn">music</button>
+
+                <!-- AUDIO FILE -->
+                <audio id="bgm" loop>
+                    <source src="music2.mp3" type="audio/mpeg">
+                </audio>
+        </div>
+</div>
+
+<div class="bio-list">
+    
+<div class="bio-list-note">
+	<a href="https://milgram.jp/news/post/news-goods-20251207">
+		<div class="data">
+            <span>FULL</span>
+			<em>NAME</em>
+        </div>
+		<dl>
+			<dt>NUR BATRISYIA BINTI AHMAD TARMIZI</dt>
+			<dd>"to be good all the time"</dd>
+		</dl>
+	</a>
+</div>
+
+
+<div class="bio-list-note">
+	<a href="https://milgram.jp/news/post/news-goods-20251207">
+		<div class="data">
+			<em>BORN</em>
+            <span>IN</span>
+        </div>
+		<dl>
+			<dt>HOSPITAL SULTAN IDRIS SHAH, SERDANG</dt>
+			<dd>SELANGOR</dd>
+		</dl>
+	</a>
+</div>
+<div class="bio-list-note">
+	<a href="https://milgram.jp/news/post/news-goods-20251207">
+		<div class="data">
+			<span>CURRENTLY</span>
+			<em>STUDY</em>
+        </div>
+		<dl>
+			<dt>UNIVERSITI TEKNOLOGI MARA, SEGAMAT</dt>
+			<dd>JOHOR</dd>
+		</dl>
+	</a>
+</div>
+<div class="bio-list-note">
+	<a href="https://milgram.jp/news/post/news-goods-20251207">
+		<div class="data">
+			<em>LIVED</em>
+            <span>IN</span>
+        </div>
+		<dl>
+			<dt> SEKSYEN U5/9, MUTIARA SUBANG</dt>
+			<dd>SHAH ALAM</dd>
+		</dl>
+	</a>
+</div>
+
+</div>
+
+<footer class="link-footer">
+    <div class="footer-inner">
+
+        <div class="footer-section logo-section">
+            <h2 class="footer-logo">BATRISYIA</h2>
+            <div class="footer-icons">
+                <a href="https://www.tiktok.com/@imisyh_0v0"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/iameisyh?igsh=d3gwYm10ZTRveGJ6"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1Lm4s4bi4t/"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>CONTENTS</h3>
+            <a href="index.html">HOME</a>
+            <a href="family.html">FAMILY</a>
+            <a href="educational.html">EDUCATIONAL</a>
+            <a href="hobby.html">INTEREST</a>
+            <a href="socmed.html">SOCIAL MEDIA</a>
+            
+        </div>
+
+        <div class="footer-section">
+            <h3>LINKS</h3>
+            <a href="https://maps.app.goo.gl/qgBS1LXYhni6RvMN6" target="_blank">Hospital Location</a>
+            <a href="https://maps.app.goo.gl/J7XKnwzmULRHFndM6">UiTM Location</a>
+            <a href="#">End of Our Story</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>SHARE</h3>
+            <a href="https://x.com/Ma1roo"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com/users/syhzz."><i class="fa-brands fa-discord"></i></a>
+        </div>
+
+    </div>
+
+    <p class="footer-note">
+        ぜひご来場いただき、応援してください。ありがとうございます。
+    </p>
+    <p class="footer-bottom">© Nur Batrisyia bt Ahmad Tarmizi</p>
+</footer>
+
+<script>
+    const music = document.getElementById("bgm");
+    const musicBtn = document.getElementById("musicBtn");
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", () => {
+        if (!isPlaying) {
+            music.play();
+            musicBtn.innerText = "⏸";
+            isPlaying = true;
+        } else {
+            music.pause();
+            musicBtn.innerText = "▶";
+            isPlaying = false;
+        }
+    });
+
+
+<!-- Scroll to Top Button -->
+    <button id="scrollTopBtn">&#8679;</button>
+
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", function () {
+        scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</body>
+</html>
