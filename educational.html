@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>My Education</title>
+<style>
+
+body {
+  background: url(wall2.jpeg);
+  background-size: cover;      /* fills entire page */
+  background-repeat: no-repeat;/* stops repeating */
+  background-position: center; /* centers the image */
+  background-attachment: fixed;
+  margin: 0;
+  padding: 10px;
+}
+
+
+/* marquee */
+marquee{
+    
+    font-size: larger;
+    font-family: times new roman;
+    color:#ffffff;
+    background-color: #000000;
+    font-weight: 700;
+    border-radius:10px;
+    width: 1100px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 65px;
+}
+
+.container {
+  display: grid;
+  
+}
+
+
+
+
+
+.skill-bar{
+  background-color: rgba(255, 255, 255, 0.959);
+  padding: 10px;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  border-radius: 25px;
+  border: 3px solid black;
+}
+
+
+.skill span {
+font-weight: bold;
+}
+
+
+.bar {
+background: #000;
+border-radius: 20px;
+overflow: hidden;
+height: 12px;
+}
+
+
+.fill {
+background: #ffc400;
+height: 100%;
+}
+
+fieldset {
+  border: 2px solid #000000;
+  border-radius: 20px;
+  padding: 15px 25px;
+  width: auto;
+  background-color: #00000086; /* last two digits (55) = transparency */
+}
+
+legend {
+  font-size: 55px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 15px #000000;
+}
+
+/* slideshow */
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  background: #111111;
+  padding: 10px 0;
+  margin-top: 25px;
+  border-radius: 10px;
+  border-radius: 25px;
+  border: 3px solid rgb(252, 252, 252);
+}
+
+.slideshow-container h2 {
+  font-size: 55px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 15px #000000;
+  
+}
+
+.slide-track {
+  display: flex;
+  height: 251px;
+  gap: 20px;
+  animation: scroll 25s linear infinite;
+}
+
+.slide {
+  min-width: 350px;  /* Landscape width */
+  height: 200px;      /* Landscape height */
+  text-align: center;
+  font-family: arial;
+  color:white;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Keeps image landscape and cropped perfectly */
+  border-radius: 8px;
+}
+
+
+/* Auto-scrolling effect */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-350px * 4 - 20px * 4));
+    }
+}
+
+/* video */
+.sub-container {
+  background-color: black;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+.sub-container h3{
+  text-align: center;
+}
+
+.video-list {
+  list-style: none;
+  padding: 0;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 40px;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.video-box {
+  cursor: pointer;
+  display: grid;
+  justify-content: center;
+  
+}
+
+.video-box span {
+  text-align: center;
+}
+
+
+/* Image frame — MILGRAM sharp corners */
+.frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 380px;
+    height: 220px;
+}
+
+.frame img {
+  width: 100%;
+  display: block;
+}
+
+/* Yellow play button */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 75px;
+  color: #f6d73a;       /* YELLOW */
+  opacity: 0.9;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px #f6d73a);
+}
+
+.video-box span {
+  margin-top: 12px;
+  display: block;
+  color: #f6d73a;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
+
+#videoFrame {
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+}
+
+
+
+/* chat-box */
+.chats {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 25px;
+  border: 3px solid black;
+}
+
+.chat-box{
+  margin: 10px;
+    width: 350px;
+    height: auto;
+    background: transparent;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+.chat-header {
+    background-color:black;
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-family: arial;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border: 2px solid black;
+    background-color: transparent;
+  }
+  .message {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 80%;
+  }
+  
+  .message.user {
+    background-color:black;
+    color: white;
+    margin-left: 50px;   /* pushes it more to the right */
+    margin-right: 5px;   /* small gap from chat box edge */
+  }
+  
+  .message.bot {
+    background-color: #FFD700;
+  }
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+    border: 1px solid black;
+  }
+
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+  }
+
+  .chat-input button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #FFD700;
+    border: none;
+    cursor: pointer;
+  }
+
+  .chat-input button:hover {
+    background-color: #FFD700;
+    color: rgb(0, 0, 0);
+  }
+
+
+
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #868686;
+  border-radius: 14px;
+  position: relative;
+  max-width: 600px;
+  width: 90%;
+  padding-top: 50px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.modal-content img {
+  width: 50%;
+  border-radius: 10px;
+  margin-top: 40px;   /* 🔥 creates space below title */
+}
+
+/* image box */
+.logo-img {
+  width: 180px;
+  height: 140px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-img img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+/* content */
+.edu-card {
+    max-width: 900px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 16px;
+  margin: 20px auto;
+}
+
+
+.edu-content {
+  flex: 1;
+}
+
+.edu-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.edu-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+/* button + period */
+.edu-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.edu-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edu-btn:hover {
+  background: #f1f1f1;
+}
+
+.edu-period {
+  background: #fff;
+  color: #000;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+/* CLOSE BUTTON */
+.close-btn {
+  color: black;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;          /* 🔥 brings it to front */
+  background: #fff;     /* optional but recommended */
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.intern-container {
+  width: 100%;
+  overflow: hidden;
+  background: #000000ea;
+  padding: 10px 0;
+  margin-top: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  border: 3px solid white;
+
+
+}
+
+.intern-container h3{
+  font-size: 35px;
+  color: #ffffff;
+  border-bottom: #000;
+
+}
+
+.intern-container p{
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+
+
+/* NAV BAR */
+nav{
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  font-weight: 700;
+}
+
+nav a{
+  text-decoration:none;
+  color:#ffc400;
+  font-size: 25px;
+}
+
+nav a:hover {
+  padding: 0 10px;
+  color: #ffffff;
+  transition: 0.5s;
+  border-radius: 20px;
+  text-shadow: 0 0 6px #ffffff;
+}
+
+/*footer*/
+.link-footer {
+    background: #000000;
+    color: #ffcc00;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+}
+
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.footer-logo {
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: #ffcc00;
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    opacity: 0.7;
+}
+
+.footer-icons a i {
+    font-size: 22px;
+    margin-right: 12px;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+
+
+/* Scroll to Top */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #FFD700;
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #FFD700;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+#scrollTopBtn:hover {
+    background-color: #fff;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <marquee width="500" scrolldelay="100">
+      E D U C A T I O N --- 私の教育と学習経験 --- E D U C A T I O N --- 私の教育と学習経験 --- E D U C A T I O N --- 私の教育と学習経験 --- E D U C A T I O N --- 私の教育と学習経験
+</marquee>
+</div>
+
+<div class="container">
+  <div class="edu-card">
+  <div class="logo-img">
+    <img src="tadika.jpeg" alt="School Logo">
+  </div>
+
+  <div class="edu-content">
+    <h3>1. Pre-School: Tadika Kemas</h3>
+    <p>
+      The initial phase of learning and social interaction development.
+      Focus on creative activities and foundational reading skills.
+      Tadika (<strong>KEMAS</strong>).
+    </p>
+
+    <div class="edu-actions">
+<!-- your existing popout button -->
+    <!-- BUTTONS -->
+      <button class="edu-btn"
+        data-title="Tadika Kemas Memories"
+        data-img="tadika1.jpg"
+        onclick="openCert(this)">
+        📸 Humble Picture
+      </button>
+
+
+
+
+      <span class="edu-period">🕒 2009 - 2011</span>
+      <span class="edu-period" >Netball</span>
+      <span class="edu-period" >Spelling bee</span>
+
+
+    </div>
+  </div>
+</div>
+<!-- 🔥 POPUP MODAL (ONLY ONE) -->
+<div class="modal" id="certModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCert()">×</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" src="tadika1.jpg">
+  </div>
+</div>
+
+
+
+<div class="edu-card">
+  <div class="logo-img">
+    <img src="rtb.jpeg" alt="School Logo">
+  </div>
+
+  <div class="edu-content">
+    <h3>2. Primary School:SK RANCANGAN  TANAH BELIA</h3>
+    <p>
+      Specialization in the business and economic stream and comprehensive
+      preparation for public examinations (<strong>UPSR</strong>).
+    </p>
+
+    <div class="edu-actions">
+<!-- your existing popout button -->
+    <!-- BUTTONS -->
+      <button class="edu-btn"
+        data-title="Tadika Kemas Memories"
+        data-img="upsr.jpg"
+        onclick="openCert(this)">
+        📄 Education Certificate
+      </button>
+
+
+
+
+      <span class="edu-period">🕒 2012 - 2017</span>
+      <span class="edu-period" >UPSR</span>
+      <span class="edu-period" >Hockeys</span>
+      <span class="edu-period" >Science</span>
+
+
+    </div>
+  </div>
+</div>
+<!-- 🔥 POPUP MODAL (ONLY ONE) -->
+<div class="modal" id="certModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCert()">×</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" src="upsr.jpg">
+  </div>
+</div>
+
+
+
+
+
+<div class="edu-card">
+  <div class="logo-img">
+    <img src="smkbc.jpeg" alt="School Logo">
+  </div>
+
+  <div class="edu-content">
+    <h3>3.Secondary School:SMK BUKIT CHANGGANG</h3>
+    <p>Temporary school in form 1. </p>
+
+    <div class="edu-actions">
+<!-- your existing popout button -->
+    <!-- BUTTONS -->
+      <button class="edu-btn"
+        data-title="Sijil Pembelajaran Malaysia"
+        data-img="spm.jpeg"
+        onclick="openCert(this)">
+        📄 Education Certificate
+      </button>
+
+
+
+
+      <span class="edu-period">🕒 2018</span>
+      <span class="edu-period" >Geography</span>
+      <span class="edu-period" >Hockeys</span>
+      <span class="edu-period" >economic</span>
+
+
+    </div>
+  </div>
+</div>
+<!-- 🔥 POPUP MODAL (ONLY ONE) -->
+<div class="modal" id="certModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCert()">×</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" src="spm.jpeg">
+  </div>
+</div>
+
+
+
+
+<div class="edu-card">
+  <div class="logo-img">
+    <img src="subest.jpeg" alt="School Logo">
+  </div>
+
+  <div class="edu-content">
+    <h3>4. Secondary School:>SMK SUBANG BESTARI</h3>
+    <p>Specialization in the business and economic stream and comprehensive preparation for public examinations (<strong>SPM</strong>).</p>
+
+    <div class="edu-actions">
+<!-- your existing popout button -->
+    <!-- BUTTONS -->
+      <button class="edu-btn"
+        data-title="Sijil Pembelajaran Malaysia"
+        data-img="spm.jpeg"
+        onclick="openCert(this)">
+        📄 Education Certificate
+      </button>
+
+
+
+
+      <span class="edu-period">🕒 2019-2023</span>
+      <span class="edu-period" >Geography</span>
+      <span class="edu-period" >accountant</span>
+
+
+    </div>
+  </div>
+</div>
+<!-- 🔥 POPUP MODAL (ONLY ONE) -->
+<div class="modal" id="certModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCert()">×</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" src="spm.jpeg">
+  </div>
+</div>
+
+
+
+
+<div class="edu-card">
+  <div class="logo-img">
+    <img src="UiTM.jpg" alt="School Logo">
+  </div>
+
+  <div class="edu-content">
+    <h3>5.University Teknologi MARA</h3>
+    <p>Masjoring Diploma in Information Management (SI110) with a strong focus on data organization and systems.</p>
+
+    <div class="edu-actions">
+<!-- your existing popout button -->
+    <!-- BUTTONS -->
+      <button class="edu-btn"
+        data-title="CGPA"
+        data-img="cgpa.jpg"
+        onclick="openCert(this)">
+        📄 Education Certificate
+      </button>
+
+
+
+
+      <span class="edu-period">🕒 2023 - present</span>
+      <span class="edu-period" >Marching Band</span>
+      <span class="edu-period" >System Databases</span>
+
+
+    </div>
+  </div>
+</div>
+<!-- 🔥 POPUP MODAL (ONLY ONE) -->
+<div class="modal" id="certModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCert()">×</span>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" src="cgpa.jpg">
+  </div>
+</div>
+
+</div>
+
+<div class="container">
+  <div class="skill-bar">
+    <fieldset> <legend>EDUCATION SKILLS</legend>
+    <div class="skill">
+      
+      <span>TECHNICAL SKILLS</span>
+      <div class="bar"><div class="fill" style="width:70%"></div></div>
+      <ul>
+      <li>Microsoft Office Suite (Intermediate)</li>
+      <li>Adobe Photoshop (Intermediate)</li>
+      <li>Canva (Intermediate)</li>
+      <li>CapCut (Intermediate)</li>
+      <li>MySQL (Basic)</li>
+      <li>C++ (Basic)</li>
+    </ul>
+    </div>
+    <div class="skill">
+      <span>SOFT SKILLS</span>
+      <div class="bar"><div class="fill" style="width:60%"></div></div>
+      <ul>
+      <li>Able to communicate affectively with other</li>
+      <li>Independent and self-reliant but also a team player</li>
+      <li>Adapts quickly to new environments and responsibilities.</li>
+      <li>Flexible mindset for workplace flexibility</li>
+      <li>Demonstrate the ability to learn new skills.</li>
+    </ul>
+    </div>
+    </fieldset>
+  </div>
+</div>
+
+<div class="container">
+<div class="slideshow-container">
+  <h2>Extracurricular</h2>
+    <div class="slide-track">
+      <div class="slide">
+          <img src="perkom.jpg" alt="Kor">
+          <div class="overlay-text">semester 1</div>
+      </div>
+      <div class="slide">
+          <img src="sem1.jpg" alt="Kor">
+          <div class="overlay-text">Latihan Intensif Brass Band</div>
+      </div>
+      <div class="slide">
+          <img src="third.jpg" alt="Kor">
+          <div class="overlay-text">Hari Ulang tahun Kesatria<br>(2024)</div>
+      </div>
+      <div class="slide">
+          <img src="libb.jpg" alt="Kor">
+          <div class="overlay-text">Majlis Kecermelangan<br>Kesatria (2024)</div>
+      </div>
+      <div class="slide">
+          <img src="ksl.jpg" alt="Performance">
+          <div class="overlay-text">MIYMBC<br>Hidden (2024)<br>KSL</div>
+      </div>
+      <div class="slide">
+          <img src="umbc.jpg" alt="Performance">
+          <div class="overlay-text">UMBC<br>Hidden (2024)<br>UiTM Segamat</div>
+      </div>
+      <div class="slide">
+          <img src="awakening.jpg" alt="Performance">
+          <div class="overlay-text">NATCOMP<br>Awakening (2025)<br>Alor Setar,Kedah</div>
+      </div>
+  </div>
+</div>   
+
+
+  <div class="sub-container">
+    <article class="sub">
+    <section class="sub-movie">
+      <h3>
+        <img src="sticker2.png" 
+        alt="Promotion Movie">
+      </h3>
+
+      <ul class="video-list">
+        <!-- Video 1 -->
+        <li class="video-box">
+          <div class="frame">
+            <a class="video" href="https://youtu.be/IwJRXeJPLes?si=kk2apH8DOPMcEZEI">
+					    <img src="awakening.jpg">
+            </a>
+            <div class="play-btn">&#9658;</div>
+          </div>
+          <span>National Competition 2025 - 
+          <br>The Awakening Final Stage</span>
+        </li>
+        <!-- Video 2 -->
+        <li class="video-box">
+          <div class="frame">
+            <a class="video" href="https://youtu.be/HFBQNFsBdnk?si=7bbHDgWd-sdD91Om">
+					    <img src="awakening.jpg">
+            </a>
+            <div class="play-btn">&#9658;</div>
+          </div>
+          <span>National Competition 2025 - 
+          <br>The Awakening Preliminary Stage</span>
+        </li>
+        <!-- Video 3 -->
+        <li class="video-box">
+          <div class="frame">
+            <a class="video" href="https://youtu.be/JJHGVzb09uQ?si=hYUrNSSLhL8lMKJS">
+					    <img src="umbc.jpg">
+            </a>
+            <div class="play-btn">&#9658;</div>
+          </div>
+          <span>UiTM Marching Band 
+          <br>Competition 2024- Hidden</span>
+        </li>
+        <!-- Video 4 -->
+        <li class="video-box">
+          <div class="frame">
+            <a class="video" href="https://youtu.be/Ui1LW81fTVE?si=knuIK3cBXb8fPi3n">
+					    <img src="ksl.jpg">
+            </a>
+            <div class="play-btn">&#9658;</div>
+          </div>
+          <span>Malaysia International Youth Marching 
+            <br>Band Competition 2024 - Hidden</span>
+        </li>
+
+
+
+      </ul>
+    </section>
+  </article>
+  </div>
+
+</div>
+
+<div class="container">
+ <div class="chats">
+  <div class="chat-box">
+    <div class="chat-header">LANGUAGE</div>
+    <div class="chat-messages">
+        <div class="message user">Hi there!&#128512;</div>
+        <div class="message bot">Hello Batrisyia,&#128516;can I know what language you speak?</div>
+        <div class="message user">Sure! My native language is Malay</div>
+        <div class="message user">I can also speak English at an intermediate level</div>
+        <div class="message bot">Impressive! Being bilingual is a great advantages</div>
+    </div>
+<div class="chat-input">
+    <input type="text" placeholder="Type a message...">
+    <button>Send</button>
+  </div>
+ </div>
+ <div class="sticker-center">
+  <img src="stciker1.png" alt="sticker">
+ </div>
+
+ <div class="chat-box">
+    <div class="chat-header">RESPONBILITY</div>
+    <div class="chat-messages">
+      <div class="message user">Any Question?</div>
+        <div class="message bot">Do You Have responsibility?</div>
+        <div class="message user">I do! in my major, I', responsible to Managing physical and electronic records for department.</div>
+        <div class="message user">Also, Veryfing the documents for disposal in Microsoft Excel</div>
+        <div class="message bot">Impressive!Majoring in IM is a great advantages</div>
+    </div>
+<div class="chat-input">
+    <input type="text" placeholder="Type a message...">
+    <button>Send</button>
+  </div>
+ </div>
+
+</div>
+</div>
+
+<div class="container">
+    <div class="intern-container">
+      <h3>Work Experience -- Industrial Learning</h3>
+      <h3>LEMBAGA GETAH HASIL</h3>
+      <p>Unit Pembangunan dan Pengurusan Fasiliti </p>
+    <p>My practical journey, where theoretical knowledge transitioned into hands-on skills during internship and industrial learning placements</p>
+    <div class="slide-track">
+      <div class="slide">
+          <img src="intern1.jpg" alt="Kor">
+          <div class="overlay-text">Record Rack</div>
+      </div>
+      <div class="slide">
+          <img src="intern2.jpg" alt="Kor">
+          <div class="overlay-text">Record Shelve</div>
+      </div>
+      <div class="slide">
+          <img src="intern3.jpg" alt="Kor">
+          <div class="overlay-text">Electric Room</div>
+      </div>
+      <div class="slide">
+          <img src="intern4.jpg" alt="Kor">
+          <div class="overlay-text">Unit Pembangunan Sumber Manusia</div>
+      </div>
+      <div class="slide">
+          <img src="intern5.jpg" alt="Performance">
+          <div class="overlay-text">Site Visit</div>
+      </div>
+      <div class="slide">
+          <img src="intern6.jpg" alt="Performance">
+          <div class="overlay-text">Managing Records in Record Room</div>
+      </div>
+      <div class="slide">
+          <img src="intern7.jpg" alt="Performance">
+          <div class="overlay-text">Managing Paperwork</div>
+      </div>
+      <div class="slide">
+          <img src="intern8.jpg" alt="Performance">
+          <div class="overlay-text">Records Rack</div>
+      </div>
+      <div class="slide">
+          <img src="intern9.jpg" alt="Performance">
+          <div class="overlay-text">Gotong-Royong</div>
+      </div>
+      <div class="slide">
+          <img src="intern10.jpg" alt="Performance">
+          <div class="overlay-text">Electric Maintenance</div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<!-- NAV -->
+<nav>
+  <a href="index.html">HOME</a>
+  <a href="background.html">BACKGROUND</a>
+  <a href="education.html">EDUCATION</a>
+  <a href="hobby.html">INTEREST</a>
+  <a href="socmed.html">SOCIAL MEDIA</a>
+  <a href="Memory.html">MEMORY</a>
+</nav>
+
+
+<footer class="link-footer">
+    <div class="footer-inner">
+
+        <div class="footer-section logo-section">
+            <h2 class="footer-logo">BATRISYIA</h2>
+            <div class="footer-icons">
+                <a href="https://www.tiktok.com/@imisyh_0v0"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/iameisyh?igsh=d3gwYm10ZTRveGJ6"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1Lm4s4bi4t/"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>CONTENTS</h3>
+            <a href="index.html">HOME</a>
+            <a href="family.html">FAMILY</a>
+            <a href="background.html">BACKGROUND</a>
+            <a href="hobby.html">INTEREST</a>
+            <a href="socmed.html">SOCIAL MEDIA</a>
+            <a href="Memory.html">MEMORY</a>
+            
+        </div>
+
+        <div class="footer-section">
+            <h3>LINKS</h3>
+            <a href="https://maps.app.goo.gl/KDe7c141y5KEAYS16">RRIM,Sg.Buloh</a>
+            <a href="https://maps.app.goo.gl/gV46N39DcDCr8NVY7">260,Ampang</a>
+            <a href="https://maps.app.goo.gl/J7XKnwzmULRHFndM6">UiTM Location</a>
+            <a href=".html">End of Our Story</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>SHARE</h3>
+            <a href="https://x.com/Ma1roo"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com/users/syhzz."><i class="fa-brands fa-discord"></i></a>
+        </div>
+
+    </div>
+
+    <p class="footer-note">
+        ぜひご来場いただき、応援してください。ありがとうございます。
+    </p>
+    <p class="footer-bottom">© Nur Batrisyia bt Ahmad Tarmizi</p>
+</footer>
+
+<!-- Scroll to Top Button -->
+    <button id="scrollTopBtn">&#8679;</button>
+
+
+<script>
+  function myFunction() {
+  document.getElementById("panel").style.display = "block";
+}
+
+
+  function openCert() {
+    document.getElementById("certModal").style.display = "flex";
+  }
+
+  function closeCert() {
+    document.getElementById("certModal").style.display = "none";
+  }
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", function () {
+        scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+
+  function openCert(button) {
+    const title = button.getAttribute("data-title");
+    const img = button.getAttribute("data-img");
+
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalImage").src = img;
+
+    document.getElementById("certModal").style.display = "flex";
+  }
+
+  function closeCert() {
+    document.getElementById("certModal").style.display = "none";
+  }
+</script>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</body>
+</html>
